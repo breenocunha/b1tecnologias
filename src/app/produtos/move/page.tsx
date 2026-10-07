@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+import { ProductView } from "@/components/product-view";
+import { productBySlug, products } from "@/lib/content";
+
+const product = productBySlug("move")!;
+
+export const metadata: Metadata = {
+  title: product.name,
+  description: product.summary,
+};
+
+export default function MovePage() {
+  return <ProductView product={product} siblings={products} />;
+}
