@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 
 const marks = [
-  { label: "B1 Refritech", x: 58, y: 16, d: 18 },
-  { label: "B1 PDV", x: 76, y: 36, d: 14 },
-  { label: "B1 Move", x: 64, y: 58, d: 16 },
-  { label: "B1 …", x: 82, y: 74, d: 10 },
+  { label: "B1 Refritech", tone: "refritech", x: 58, y: 16, d: 18 },
+  { label: "B1 PDV", tone: "pdv", x: 76, y: 36, d: 14 },
+  { label: "B1 Move", tone: "move", x: 64, y: 58, d: 16 },
+  { label: "B1 …", tone: "next", x: 82, y: 74, d: 10 },
 ];
 
 export function HeroV2() {
@@ -39,13 +39,14 @@ export function HeroV2() {
       {marks.map((mark) => (
         <span
           key={mark.label}
-          className="hero-mark"
+          className={`hero-mark tone-${mark.tone}`}
           style={{
             left: `${mark.x}%`,
             top: `${mark.y}%`,
             transform: `translate3d(calc(var(--px, 0) * ${mark.d}px), calc(var(--py, 0) * ${mark.d * 0.7}px), 0)`,
           }}
         >
+          <span className="tone-dot" />
           {mark.label}
         </span>
       ))}

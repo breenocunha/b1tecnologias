@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Diamond({ className }: { className?: string }) {
@@ -15,12 +16,17 @@ export function Logo() {
       className="group inline-flex items-center gap-2.5 text-paper"
       aria-label="B1 Tecnologias, início"
     >
-      <Diamond className="h-3.5 w-3.5 text-cyan" />
-      <span className="font-display text-[15px] font-semibold tracking-[0.16em]">
-        B1
-        <span className="ml-2 hidden font-sans text-[10px] font-medium tracking-[0.32em] text-mist sm:inline">
-          TECNOLOGIAS
-        </span>
+      <Image
+        src="/marca/b1.png"
+        alt=""
+        width={517}
+        height={490}
+        priority
+        unoptimized
+        className="h-10 w-auto"
+      />
+      <span className="hidden font-sans text-[10px] font-medium tracking-[0.32em] text-mist sm:inline">
+        TECNOLOGIAS
       </span>
     </Link>
   );

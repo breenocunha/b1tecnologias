@@ -15,7 +15,7 @@ export default function PrivacidadePage() {
         <p>Atualizado em 7 de outubro de 2026.</p>
         <p>
           Este site é institucional da B1 Tecnologias. O contato é{" "}
-          <a className="text-paper hover:text-cyan" href={`mailto:${site.emails.contact}`}>
+          <a className="text-paper hover:text-blue" href={`mailto:${site.emails.contact}`}>
             {site.emails.contact}
           </a>
           .

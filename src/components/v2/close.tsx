@@ -4,7 +4,7 @@ export function Close() {
   const mail = `mailto:${site.emails.contact}?subject=${encodeURIComponent("Um problema para a B1")}`;
 
   return (
-    <section id="contato" className="px-5 py-32 md:px-8 md:py-44">
+    <section id="contato" className="band-close px-5 py-32 md:px-8 md:py-44">
       <div className="mx-auto max-w-5xl">
         <h2 className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.88] font-medium tracking-[-0.045em]">
           Tem um problema.

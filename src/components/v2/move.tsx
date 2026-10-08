@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export function MoveSection() {
   return (
-    <section id="move" className="move-section relative overflow-hidden px-5 py-28 md:px-8 md:py-40">
+    <section id="move" className="tone-move move-section relative overflow-hidden px-5 py-28 md:px-8 md:py-40">
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_0.8fr]">
         <div>
           <p className="font-display text-[clamp(2.5rem,5.4vw,4.8rem)] leading-[0.92] font-medium tracking-[-0.04em] text-balance">
             Movimento também é tecnologia.
           </p>
-          <h2 className="mt-8 font-display text-2xl tracking-[0.14em]">B1 Move</h2>
-          <p className="mt-4 max-w-md text-lg leading-relaxed text-[#c8c2b4]">
+          <h2 className="product-kicker mt-8 font-display text-2xl tracking-[0.14em]">B1 Move</h2>
+          <p className="mt-4 max-w-md text-lg leading-relaxed text-mist">
             Uma experiência inteligente para quem decidiu voltar a se movimentar. Ainda em
             desenvolvimento.
           </p>
@@ -61,7 +61,7 @@ export function MoveSection() {
               strokeWidth="2"
               strokeLinecap="round"
             />
-            <circle cx="246" cy="224" r="5" fill="#ff4d2a" />
+            <circle cx="246" cy="224" r="5" fill="#8b6cff" />
           </svg>
         </div>
       </div>

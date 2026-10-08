@@ -35,7 +35,7 @@ export default function SobrePage() {
         <ul>
           {products.map((product) => (
             <li key={product.slug}>
-              <Link href={`/produtos/${product.slug}`} className="text-paper hover:text-cyan">
+              <Link href={`/produtos/${product.slug}`} className="text-paper hover:text-blue">
                 {product.name}
               </Link>
               {" — "}

@@ -28,9 +28,9 @@ const chain = ["Refrigeração", "Gestão", "Vendas", "Estoque", "Clientes", "Da
 const labs = ["AI", "3D", "Automação", "Cloud", "Mobile", "Web"];
 
 const nodes = [
-  { name: "B1 Refritech", hint: "Refrigeração", href: "/produtos/refritech" },
-  { name: "B1 PDV", hint: "Varejo", href: "/produtos/pdv" },
-  { name: "B1 Move", hint: "Movimento", href: "/produtos/move" },
+  { name: "B1 Refritech", hint: "Refrigeração", href: "/produtos/refritech", tone: "refritech" },
+  { name: "B1 PDV", hint: "Varejo", href: "/produtos/pdv", tone: "pdv" },
+  { name: "B1 Move", hint: "Movimento", href: "/produtos/move", tone: "move" },
 ];
 
 export function Statement() {
@@ -67,15 +67,18 @@ export function Growing() {
             <path d="M150 96 C150 40 450 40 450 28" stroke="rgba(255,255,255,0.22)" />
             <path d="M450 28 V96" stroke="rgba(255,255,255,0.22)" />
             <path d="M750 96 C750 40 450 40 450 28" stroke="rgba(255,255,255,0.22)" />
-            <circle cx="450" cy="6" r="3.5" fill="#ff4d2a" />
-            <circle cx="150" cy="92" r="3" fill="#f4f4f1" />
-            <circle cx="450" cy="92" r="3" fill="#f4f4f1" />
-            <circle cx="750" cy="92" r="3" fill="#f4f4f1" />
+            <circle cx="450" cy="6" r="3.5" fill="#1261ff" />
+            <circle cx="150" cy="92" r="3" fill="#22c7ff" />
+            <circle cx="450" cy="92" r="3" fill="#3ddc97" />
+            <circle cx="750" cy="92" r="3" fill="#8b6cff" />
           </svg>
           <div className="mt-6 grid gap-4 md:mt-0 md:grid-cols-3">
             {nodes.map((node) => (
-              <Link key={node.name} href={node.href} className="glass block p-6">
-                <p className="font-display text-xl tracking-tight">{node.name}</p>
+              <Link key={node.name} href={node.href} className={`tone-${node.tone} glass block p-6`}>
+                <p className="font-display text-xl tracking-tight">
+                  <span className="tone-dot" />
+                  {node.name}
+                </p>
                 <p className="mt-2 text-sm text-mist">{node.hint}</p>
               </Link>
             ))}

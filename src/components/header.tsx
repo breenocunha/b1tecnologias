@@ -40,7 +40,7 @@ export function Header() {
     <header
       className={`site-header fixed inset-x-0 top-0 z-40 ${
         scrolled || open
-          ? "border-b border-white/10 bg-[#090909]/80 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-[#07111F]/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >

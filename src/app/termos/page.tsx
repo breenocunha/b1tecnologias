@@ -30,11 +30,11 @@ export default function TermosPage() {
         <h2>Contato</h2>
         <p>
           Conversas comerciais e institucionais começam pelos e-mails{" "}
-          <a className="text-paper hover:text-cyan" href={`mailto:${site.emails.contact}`}>
+          <a className="text-paper hover:text-blue" href={`mailto:${site.emails.contact}`}>
             {site.emails.contact}
           </a>{" "}
           e{" "}
-          <a className="text-paper hover:text-cyan" href={`mailto:${site.emails.commercial}`}>
+          <a className="text-paper hover:text-blue" href={`mailto:${site.emails.commercial}`}>
             {site.emails.commercial}
           </a>
           .

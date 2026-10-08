@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site, products } from "@/lib/content";
 
@@ -6,8 +7,8 @@ export function Footer() {
     <footer className="border-t border-white/10">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
         <div>
-          <p className="font-display text-4xl leading-none tracking-tight">B1</p>
-          <p className="mt-2 text-xs tracking-[0.42em] text-mist">TECNOLOGIAS</p>
+          <Image src="/marca/b1.png" alt="B1" width={517} height={490} unoptimized className="h-16 w-auto" />
+          <p className="mt-3 text-xs tracking-[0.42em] text-mist">TECNOLOGIAS</p>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-mist">{site.slogan}</p>
           <p className="mt-6 text-sm text-paper">{site.city}</p>
         </div>
@@ -16,13 +17,14 @@ export function Footer() {
           <ul className="mt-4 grid gap-2 text-sm">
             {products.map((product) => (
               <li key={product.slug}>
-                <Link href={`/produtos/${product.slug}`} className="hover:text-cyan">
+                <Link href={`/produtos/${product.slug}`} className={`tone-${product.slug} hover:text-blue`}>
+                  <span className="tone-dot" />
                   {product.name}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/#labs" className="hover:text-cyan">
+              <Link href="/#labs" className="hover:text-blue">
                 B1 Labs
               </Link>
             </li>
@@ -36,17 +38,17 @@ export function Footer() {
             <li>Automação</li>
             <li>Tecnologia</li>
             <li className="pt-3">
-              <Link href="/#operacao" className="text-paper hover:text-cyan">
+              <Link href="/#operacao" className="text-paper hover:text-blue">
                 Em operação
               </Link>
             </li>
             <li>
-              <Link href="/sobre" className="text-paper hover:text-cyan">
+              <Link href="/sobre" className="text-paper hover:text-blue">
                 Sobre
               </Link>
             </li>
             <li>
-              <a className="text-paper hover:text-cyan" href={`mailto:${site.emails.contact}`}>
+              <a className="text-paper hover:text-blue" href={`mailto:${site.emails.contact}`}>
                 {site.emails.contact}
               </a>
             </li>

@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #090909;
-  --color-panel: #121212;
-  --color-cyan: #ff4d2a;
-  --color-electric: #f4f4f1;
-  --color-mist: #a3a39c;
-  --color-paper: #f4f4f1;
+  --color-ink: #07111f;
+  --color-panel: #0d1b2a;
+  --color-blue: #1261ff;
+  --color-cyan: #22c7ff;
+  --color-electric: #f8fafc;
+  --color-mist: #94a3b8;
+  --color-paper: #f8fafc;
+  --color-pdv: #3ddc97;
+  --color-move: #8b6cff;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
 }
@@ -27,19 +30,19 @@ html {
 body {
   margin: 0;
   min-height: 100svh;
-  background: #090909;
-  color: #f4f4f1;
+  background: #07111f;
+  color: #f8fafc;
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(255, 77, 42, 0.28);
-  color: #fff;
+  background: rgba(18, 97, 255, 0.35);
+  color: #f8fafc;
 }
 
 :focus-visible {
-  outline: 2px solid #ff4d2a;
+  outline: 2px solid #1261ff;
   outline-offset: 3px;
 }
 
@@ -49,11 +52,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #090909;
+  background: #07111f;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #1c3148;
   border-radius: 999px;
 }
 
@@ -113,7 +116,7 @@ body {
 }
 
 .eyebrow {
-  color: #ff4d2a;
+  color: #22c7ff;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.28em;
@@ -139,21 +142,25 @@ body {
     min-height: 3.15rem;
     padding: 0.85rem 1.35rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: #f4f4f1;
-    color: #090909;
+    border: 1px solid rgba(34, 199, 255, 0.35);
+    background: #1261ff;
+    color: #f8fafc;
     font-size: 0.95rem;
     letter-spacing: -0.01em;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 10px 28px rgba(18, 97, 255, 0.28);
   }
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  border-color: #f4f4f1;
-  background: #ffffff;
-  color: #090909;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  border-color: #22c7ff;
+  background: #2b74ff;
+  color: #f8fafc;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 16px 40px rgba(18, 97, 255, 0.4);
 }
 
 .btn svg,
@@ -175,7 +182,7 @@ body {
 }
 
 .link-arrow:hover {
-  color: #f4f4f1;
+  color: #1261ff;
 }
 
 .scroll-cue {
@@ -225,7 +232,7 @@ body {
 }
 
 .menu-panel {
-  background: #090909;
+  background: #07111f;
 }
 
 .site-header {
@@ -255,7 +262,7 @@ html.b1-intro-on .b1-intro {
   z-index: 80;
   display: grid;
   place-items: center;
-  background: #090909;
+  background: #07111f;
   opacity: 1;
   transition: opacity 0.8s var(--ease);
 }
@@ -306,7 +313,7 @@ html.b1-intro-on .b1-intro.is-out {
   .product-card:hover {
     z-index: 2;
     transform: translateY(-6px) scale(1.012);
-    border-color: rgba(255, 77, 42, 0.38);
+    border-color: rgba(34, 199, 255, 0.38);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.07),
       0 24px 70px rgba(0, 0, 0, 0.38),
@@ -470,7 +477,7 @@ html.b1-intro-on .b1-intro.is-out {
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
-  background: rgba(255, 77, 42, 0.75);
+  background: rgba(34, 199, 255, 0.75);
   display: block;
 }
 
@@ -484,7 +491,7 @@ html.b1-intro-on .b1-intro.is-out {
 
 .mock-label {
   margin-top: 1.1rem;
-  color: #9aabc4;
+  color: #94a3b8;
   font-size: 0.75rem;
 }
 
@@ -500,7 +507,7 @@ html.b1-intro-on .b1-intro.is-out {
   display: block;
   flex: 1;
   border-radius: 3px 3px 1px 1px;
-  background: linear-gradient(180deg, rgba(255, 77, 42, 0.9), rgba(255, 77, 42, 0.25));
+  background: linear-gradient(180deg, rgba(34, 199, 255, 0.9), rgba(34, 199, 255, 0.25));
 }
 
 .mock-list {
@@ -520,7 +527,7 @@ html.b1-intro-on .b1-intro.is-out {
 .mock-track {
   height: 0.35rem;
   border-radius: 999px;
-  background: rgba(255, 77, 42, 0.28);
+  background: rgba(34, 199, 255, 0.28);
 }
 
 .mock-row span {
@@ -558,7 +565,7 @@ html.b1-intro-on .b1-intro.is-out {
 
 .flow-v,
 .flow-drop {
-  background: linear-gradient(180deg, rgba(255, 77, 42, 0.15), rgba(255, 77, 42, 0.85));
+  background: linear-gradient(180deg, rgba(34, 199, 255, 0.15), rgba(34, 199, 255, 0.85));
 }
 
 .flow-v {
@@ -585,7 +592,7 @@ html.b1-intro-on .b1-intro.is-out {
   height: 1px;
   transform: scaleX(0);
   transform-origin: center;
-  background: linear-gradient(90deg, transparent, rgba(255, 77, 42, 0.85), transparent);
+  background: linear-gradient(90deg, transparent, rgba(34, 199, 255, 0.85), transparent);
 }
 
 .flow-row::before {
@@ -623,7 +630,7 @@ html.b1-intro-on .b1-intro.is-out {
 }
 
 a.flow-node:hover {
-  border-color: rgba(255, 77, 42, 0.45);
+  border-color: rgba(34, 199, 255, 0.45);
   box-shadow: 0 0 28px rgba(80, 160, 255, 0.12);
 }
 
@@ -679,7 +686,7 @@ a.flow-node:hover {
   min-width: 92px;
   min-height: 92px;
   border-radius: 1.4rem;
-  border: 1px solid rgba(255, 77, 42, 0.35);
+  border: 1px solid rgba(34, 199, 255, 0.35);
   background: radial-gradient(circle at 50% 30%, rgba(80, 150, 255, 0.2), rgba(8, 12, 22, 0.9));
   box-shadow: 0 0 40px rgba(70, 150, 255, 0.12);
   font-family: var(--font-syne), sans-serif;
@@ -692,7 +699,7 @@ a.flow-node:hover {
     display: flex;
     flex-direction: column;
     width: min(100%, 280px);
-    border-left: 1px solid rgba(255, 77, 42, 0.28);
+    border-left: 1px solid rgba(34, 199, 255, 0.28);
     padding-left: 0.9rem;
   }
 
@@ -713,7 +720,7 @@ a.flow-node:hover {
 }
 
 .prose-b1 {
-  color: #9aabc4;
+  color: #94a3b8;
   font-size: 1.05rem;
   line-height: 1.75;
 }
@@ -725,7 +732,7 @@ a.flow-node:hover {
 }
 
 .prose-b1 h2 {
-  color: #f4f7fb;
+  color: #f8fafc;
   font-family: var(--font-syne), sans-serif;
   font-size: 1.55rem;
   font-weight: 500;
@@ -742,7 +749,7 @@ a.flow-node:hover {
 
 .prose-b1 li {
   padding-left: 1rem;
-  border-left: 1px solid rgba(255, 77, 42, 0.35);
+  border-left: 1px solid rgba(34, 199, 255, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -762,26 +769,28 @@ a.flow-node:hover {
 
 .glass {
   border-radius: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: #0d1b2a;
+  box-shadow: inset 0 1px 0 rgba(248, 250, 252, 0.04);
   transition:
     transform 0.45s var(--ease),
     background 0.45s var(--ease),
-    border-color 0.45s var(--ease);
+    border-color 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
 }
 
 .glass:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(248, 250, 252, 0.22);
+  background: #102338;
+  box-shadow: inset 0 1px 0 rgba(248, 250, 252, 0.06);
 }
 
 .glass-chip {
   width: fit-content;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(9, 9, 9, 0.62);
+  background: rgba(7, 17, 31, 0.72);
   padding: 0.55rem 0.85rem;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
@@ -797,8 +806,21 @@ a.flow-node:hover {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(820px 460px at 72% 18%, rgba(255, 255, 255, 0.07), transparent 62%),
-    radial-gradient(420px 280px at 12% 78%, rgba(255, 77, 42, 0.09), transparent 70%);
+    radial-gradient(680px 380px at 78% 16%, rgba(18, 97, 255, 0.32), transparent 64%),
+    radial-gradient(420px 260px at 90% 48%, rgba(34, 199, 255, 0.16), transparent 70%),
+    radial-gradient(360px 220px at 8% 88%, rgba(18, 97, 255, 0.08), transparent 72%);
+  pointer-events: none;
+}
+
+.hero-v2::after {
+  content: "";
+  position: absolute;
+  right: 12%;
+  top: 34%;
+  width: min(240px, 28vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #22c7ff 45%, transparent);
+  box-shadow: 0 0 22px rgba(34, 199, 255, 0.65);
   pointer-events: none;
 }
 
@@ -810,8 +832,8 @@ a.flow-node:hover {
 
 .solid {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(34, 199, 255, 0.22);
+  background: linear-gradient(160deg, rgba(18, 97, 255, 0.08), rgba(248, 250, 252, 0.02));
 }
 
 .solid-a {
@@ -843,11 +865,14 @@ a.flow-node:hover {
 .hero-mark {
   position: absolute;
   z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: rgba(9, 9, 9, 0.45);
+  background: rgba(7, 17, 31, 0.55);
   padding: 0.45rem 0.75rem;
-  color: rgba(244, 244, 241, 0.82);
+  color: rgba(248, 250, 252, 0.82);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -857,12 +882,12 @@ a.flow-node:hover {
 
 .move-section {
   background:
-    radial-gradient(680px 420px at 82% 48%, rgba(255, 77, 42, 0.1), transparent 62%),
-    #12110e;
+    radial-gradient(680px 420px at 82% 48%, rgba(139, 108, 255, 0.18), transparent 62%),
+    #07111f;
 }
 
 .move-figure {
-  color: #f4f4f1;
+  color: #f8fafc;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -895,9 +920,76 @@ a.flow-node:hover {
 
 @media (max-width: 860px) {
   .hero-mark,
-  .hero-solid {
+  .hero-solid,
+  .hero-v2::after {
     display: none;
   }
+}
+
+.tone-refritech {
+  --tone: #22c7ff;
+}
+
+.tone-pdv {
+  --tone: #3ddc97;
+}
+
+.tone-move {
+  --tone: #8b6cff;
+}
+
+.tone-next {
+  --tone: #1261ff;
+}
+
+.tone-dot {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.55rem;
+  border-radius: 999px;
+  background: var(--tone, #1261ff);
+  box-shadow: 0 0 12px var(--tone, #1261ff);
+  vertical-align: 0.08em;
+}
+
+.tone-refritech .eyebrow,
+.tone-pdv .eyebrow,
+.tone-move .eyebrow,
+.product-kicker {
+  color: var(--tone, #22c7ff);
+}
+
+.tone-refritech .link-arrow:hover,
+.tone-pdv .link-arrow:hover,
+.tone-move .link-arrow:hover {
+  color: var(--tone);
+}
+
+.band-refritech {
+  background: radial-gradient(720px 340px at 78% 8%, rgba(34, 199, 255, 0.09), transparent 68%);
+}
+
+.band-pdv {
+  background:
+    radial-gradient(560px 280px at 8% 0%, rgba(61, 220, 151, 0.1), transparent 70%),
+    #0d1b2a;
+}
+
+.band-close {
+  background: radial-gradient(640px 280px at 18% 80%, rgba(18, 97, 255, 0.16), transparent 70%);
+}
+
+.tone-refritech.glass:hover {
+  border-color: rgba(34, 199, 255, 0.5);
+}
+
+.tone-pdv.glass:hover {
+  border-color: rgba(61, 220, 151, 0.5);
+}
+
+.tone-move.glass:hover {
+  border-color: rgba(139, 108, 255, 0.55);
 }
 
 .device-scene {
@@ -917,7 +1009,7 @@ a.flow-node:hover {
 
 .device figcaption {
   margin-top: 0.85rem;
-  color: #a3a39c;
+  color: #94a3b8;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;

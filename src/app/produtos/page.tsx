@@ -19,15 +19,18 @@ export default function ProdutosPage() {
           <Link
             key={product.slug}
             href={`/produtos/${product.slug}`}
-            className="group rounded-3xl border border-white/10 bg-white/[0.02] p-6 transition hover:border-cyan/30 md:p-8"
+            className={`tone-${product.slug} group rounded-3xl border border-white/10 bg-panel p-6 transition hover:border-[color:var(--tone)] md:p-8`}
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="font-display text-2xl tracking-tight">{product.name}</h2>
+              <h2 className="font-display text-2xl tracking-tight">
+                <span className="tone-dot" />
+                {product.name}
+              </h2>
               <span className="text-xs tracking-[0.18em] text-mist uppercase">
                 {product.status === "building" ? "Em desenvolvimento" : "Produto B1"}
               </span>
             </div>
-            <p className="mt-2 text-sm text-cyan/80">{product.field}</p>
+            <p className="mt-2 text-sm text-[color:var(--tone)]">{product.field}</p>
             <p className="mt-4 max-w-2xl text-mist">{product.summary}</p>
             <p className="link-arrow mt-6">
               {product.action}

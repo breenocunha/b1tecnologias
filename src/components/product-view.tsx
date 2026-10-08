@@ -8,7 +8,7 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
   const mail = `mailto:${site.emails.contact}?subject=${encodeURIComponent(product.name)}`;
 
   return (
-    <article className="px-5 pt-32 pb-24 md:px-8">
+    <article className={`tone-${product.slug} px-5 pt-32 pb-24 md:px-8`}>
       <div className="mx-auto max-w-6xl">
         <div className={product.shot || product.frames ? "max-w-3xl" : "grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"}>
           <div>
@@ -16,7 +16,7 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
             <h1 className="mt-4 font-display text-[clamp(2.8rem,6vw,5rem)] leading-[0.95] font-medium tracking-tight">
               {product.name}
             </h1>
-            <p className="mt-4 text-cyan/90">{product.field}</p>
+            <p className="mt-4 text-[color:var(--tone)]">{product.field}</p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">{product.pageLead}</p>
             {product.status === "building" ? (
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-paper/75">
@@ -41,8 +41,8 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
 
       <div className="mx-auto mt-20 grid max-w-6xl gap-4 md:grid-cols-3">
         {product.pillars.map((pillar) => (
-          <section key={pillar.title} className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-            <ProductIcon slug={product.slug} className="h-5 w-5 text-cyan" />
+          <section key={pillar.title} className="rounded-3xl border border-white/10 bg-panel p-6">
+            <ProductIcon slug={product.slug} className="h-5 w-5 text-[color:var(--tone)]" />
             <h2 className="mt-5 font-display text-2xl tracking-tight">{pillar.title}</h2>
             <p className="mt-3 leading-relaxed text-mist">{pillar.text}</p>
           </section>
@@ -57,7 +57,11 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
               <li key={item.slug}>
                 <Link
                   href={`/produtos/${item.slug}`}
-                  className={item.slug === product.slug ? "text-cyan" : "text-paper hover:text-cyan"}
+                  className={
+                    item.slug === product.slug
+                      ? `tone-${item.slug} text-[color:var(--tone)]`
+                      : `tone-${item.slug} text-paper hover:text-[color:var(--tone)]`
+                  }
                   aria-current={item.slug === product.slug ? "page" : undefined}
                 >
                   {item.name}

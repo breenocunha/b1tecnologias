@@ -33,7 +33,7 @@ export function RefritechFeature() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="refritech" className="px-5 py-28 md:px-8 md:py-36">
+    <section id="refritech" className="tone-refritech band-refritech px-5 py-28 md:px-8 md:py-36">
       <div className="mx-auto max-w-6xl">
         <p className="eyebrow">Carro-chefe</p>
         <h2 className="mt-4 max-w-[12ch] font-display text-[clamp(3rem,7vw,6.2rem)] leading-[0.9] font-medium tracking-[-0.04em]">
