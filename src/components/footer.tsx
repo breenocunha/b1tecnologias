@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-white/10">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
         <div>
-          <Image src="/marca/b1.png" alt="B1" width={517} height={490} unoptimized className="h-16 w-auto" />
+          <Image src="/marca/b1.png" alt="Marca da B1 Tecnologias" width={517} height={490} unoptimized className="h-16 w-auto" />
           <p className="mt-3 text-xs tracking-[0.42em] text-mist">TECNOLOGIAS</p>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-mist">{site.slogan}</p>
           <p className="mt-6 text-sm text-paper">{site.city}</p>
@@ -23,6 +23,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/produtos" className="hover:text-blue">
+                Todos os produtos
+              </Link>
+            </li>
             <li>
               <Link href="/#labs" className="hover:text-blue">
                 B1 Labs

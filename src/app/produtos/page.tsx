@@ -1,15 +1,40 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { products } from "@/lib/content";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { JsonLd } from "@/components/json-ld";
+import { products, site } from "@/lib/content";
+import { breadcrumbGraph, graph, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Produtos",
-  description: "Produtos próprios da B1 Tecnologias: Refritech, Move e PDV.",
-};
+const crumbs = [
+  { name: "Início", path: "/" },
+  { name: "Produtos", path: "/produtos" },
+];
+
+export const metadata = pageMeta({
+  path: "/produtos",
+  title: "Produtos digitais",
+  description:
+    "Produtos próprios da B1 Tecnologias: Refritech para refrigeração, PDV para vendas e estoque, e Move para uma rotina mais ativa.",
+});
 
 export default function ProdutosPage() {
   return (
     <article className="mx-auto w-full max-w-5xl px-5 pt-32 pb-28 md:px-8">
+      <JsonLd
+        data={graph(
+          breadcrumbGraph(crumbs),
+          {
+            "@type": "ItemList",
+            name: "Produtos da B1 Tecnologias",
+            itemListElement: products.map((product, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: product.name,
+              url: `${site.url}/produtos/${product.slug}`,
+            })),
+          },
+        )}
+      />
+      <Breadcrumb items={crumbs} />
       <p className="eyebrow">Produtos</p>
       <h1 className="mt-4 max-w-2xl font-display text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.02] font-medium tracking-tight text-balance">
         Ideias que já viraram produto.

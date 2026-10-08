@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Syne } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { JsonLd } from "@/components/json-ld";
 import { site } from "@/lib/content";
+import { organizationGraph } from "@/lib/seo";
 import "./globals.css";
 
 const geist = Geist({
@@ -18,32 +20,44 @@ const syne = Syne({
   display: "swap",
 });
 
+const description =
+  "A B1 Tecnologias, em Belém, cria produtos digitais próprios: Refritech para refrigeração, PDV para o comércio e Move. Sistemas em operação no Pará.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "B1 Tecnologias — Tecnologia que transforma negócios",
+    default: "B1 Tecnologias — Software e produtos digitais em Belém",
     template: "%s · B1 Tecnologias",
   },
-  description:
-    "A B1 Tecnologias cria um ecossistema de produtos digitais. Refritech, PDV e Move — tecnologia para o próximo nível.",
+  description,
   applicationName: "B1 Tecnologias",
   authors: [{ name: "B1 Tecnologias", url: site.url }],
+  creator: "B1 Tecnologias",
+  publisher: "B1 Tecnologias",
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: site.url,
     siteName: "B1 Tecnologias",
-    title: "B1 Tecnologias — Tecnologia que transforma negócios",
-    description:
-      "Um ecossistema de produtos digitais. Refritech, PDV e Move, feitos para o mundo real.",
+    title: "B1 Tecnologias — Software e produtos digitais em Belém",
+    description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "B1 Tecnologias",
-    description: site.slogan,
-  },
-  alternates: {
-    canonical: site.url,
+    title: "B1 Tecnologias — Software e produtos digitais em Belém",
+    description,
   },
 };
 
@@ -52,29 +66,19 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  url: site.url,
-  email: site.emails.contact,
-  slogan: site.slogan,
-  description:
-    "A B1 Tecnologias idealiza, desenvolve e opera produtos digitais próprios.",
-};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt-BR" className={`${geist.variable} ${syne.variable} h-full antialiased`}>
       <body className="flex min-h-svh flex-col bg-ink font-sans text-paper">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <JsonLd data={organizationGraph()} />
         <a href="#conteudo" className="skip-link">
           Ir para o conteúdo
         </a>
         <Header />
-        <div id="conteudo" className="flex flex-1 flex-col">
+        <main id="conteudo" className="flex flex-1 flex-col">
           {children}
-        </div>
+        </main>
         <Footer />
       </body>
     </html>

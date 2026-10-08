@@ -1,16 +1,26 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { JsonLd } from "@/components/json-ld";
 import { products } from "@/lib/content";
+import { breadcrumbGraph, graph, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Sobre",
+const crumbs = [
+  { name: "Início", path: "/" },
+  { name: "Sobre", path: "/sobre" },
+];
+
+export const metadata = pageMeta({
+  path: "/sobre",
+  title: "Sobre a B1",
   description:
-    "A B1 Tecnologias idealiza, desenvolve e opera produtos digitais próprios. Não criamos tecnologia por criar.",
-};
+    "A B1 Tecnologias, em Belém, idealiza, desenvolve e opera produtos digitais próprios: Refritech, PDV e Move.",
+});
 
 export default function SobrePage() {
   return (
     <article className="mx-auto w-full max-w-3xl px-5 pt-32 pb-28 md:px-8">
+      <JsonLd data={graph(breadcrumbGraph(crumbs))} />
+      <Breadcrumb items={crumbs} />
       <p className="eyebrow">A B1</p>
       <h1 className="mt-4 font-display text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.02] font-medium tracking-tight text-balance">
         Não criamos tecnologia por criar.

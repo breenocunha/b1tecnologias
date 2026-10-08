@@ -1,15 +1,37 @@
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { ProductIcon } from "@/components/icons";
+import { JsonLd } from "@/components/json-ld";
 import { ProductMock, ProductShot } from "@/components/product-mock";
 import { DeviceScene } from "@/components/refritech-devices";
 import { site, type Product } from "@/lib/content";
+import { breadcrumbGraph, graph, organizationId } from "@/lib/seo";
 
 export function ProductView({ product, siblings }: { product: Product; siblings: Product[] }) {
   const mail = `mailto:${site.emails.contact}?subject=${encodeURIComponent(product.name)}`;
+  const path = `/produtos/${product.slug}`;
+  const crumbs = [
+    { name: "Início", path: "/" },
+    { name: "Produtos", path: "/produtos" },
+    { name: product.mark, path },
+  ];
 
   return (
     <article className={`tone-${product.slug} px-5 pt-32 pb-24 md:px-8`}>
+      <JsonLd
+        data={graph(breadcrumbGraph(crumbs), {
+          "@type": "SoftwareApplication",
+          name: product.name,
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description: product.pageLead,
+          url: `${site.url}${path}`,
+          inLanguage: "pt-BR",
+          provider: { "@id": organizationId() },
+        })}
+      />
       <div className="mx-auto max-w-6xl">
+        <Breadcrumb items={crumbs} />
         <div className={product.shot || product.frames ? "max-w-3xl" : "grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"}>
           <div>
             <p className="eyebrow">{product.status === "live" ? "Produto B1" : "Em desenvolvimento"}</p>

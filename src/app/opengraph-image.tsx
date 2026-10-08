@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "B1 Tecnologias — Tecnologia que transforma negócios";
+export const alt = "B1 Tecnologias — software e produtos digitais em Belém";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

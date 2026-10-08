@@ -1,14 +1,24 @@
-import type { Metadata } from "next";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { JsonLd } from "@/components/json-ld";
 import { site } from "@/lib/content";
+import { breadcrumbGraph, graph, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Termos",
-  description: "Condições de uso do site da B1 Tecnologias.",
-};
+const crumbs = [
+  { name: "Início", path: "/" },
+  { name: "Termos", path: "/termos" },
+];
+
+export const metadata = pageMeta({
+  path: "/termos",
+  title: "Termos de uso",
+  description: "Condições de uso do site institucional da B1 Tecnologias.",
+});
 
 export default function TermosPage() {
   return (
     <article className="mx-auto w-full max-w-3xl px-5 pt-32 pb-28 md:px-8">
+      <JsonLd data={graph(breadcrumbGraph(crumbs))} />
+      <Breadcrumb items={crumbs} />
       <p className="eyebrow">Empresa</p>
       <h1 className="mt-4 font-display text-5xl font-medium tracking-tight">Termos</h1>
       <div className="prose-b1 mt-8">
