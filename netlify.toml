@@ -4,3 +4,10 @@ publish = ".next"
 
 [build.environment]
 NODE_VERSION = "22"
+
+[[headers]]
+  for = "/bimi/logo.svg"
+  [headers.values]
+    Content-Type = "image/svg+xml"
+    X-Content-Type-Options = "nosniff"
+    Access-Control-Allow-Origin = "*"
