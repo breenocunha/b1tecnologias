@@ -30,6 +30,13 @@ export const metadata: Metadata = {
     template: "%s · B1 Tecnologias",
   },
   description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
   applicationName: "B1 Tecnologias",
   authors: [{ name: "B1 Tecnologias", url: site.url }],
   creator: "B1 Tecnologias",

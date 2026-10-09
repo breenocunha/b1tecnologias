@@ -6,6 +6,16 @@ publish = ".next"
 NODE_VERSION = "22"
 
 [[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Content-Type = "image/x-icon"
+
+[[headers]]
+  for = "/icon-192.png"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[headers]]
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
