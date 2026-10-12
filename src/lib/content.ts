@@ -23,6 +23,11 @@ export type Product = {
   status: ProductStatus;
   pillars: { title: string; text: string }[];
   pageLead: string;
+  audience?: string;
+  problems?: { title: string; text: string }[];
+  faqs?: { question: string; answer: string }[];
+  ctaLabel?: string;
+  appUrl?: string;
   shot?: { src: string; alt: string; caption: string };
   frames?: { src: string; alt: string; caption: string; width: number; height: number; place: string }[];
 };
@@ -33,58 +38,77 @@ export const products: Product[] = [
     name: "B1 Refritech",
     mark: "Refritech",
     field: "Tecnologia para refrigeração",
-    line: "Gestão inteligente para refrigeração.",
+    line: "Gerencie sua empresa de refrigeração em um só lugar.",
     summary:
       "Gestão, operação e recursos técnicos para profissionais e empresas do setor.",
     extra:
       "Quem administra vê o parque no painel. Quem atende vê o dia na carteira.",
-    action: "Explorar produto",
+    action: "Conhecer o Refritech",
     status: "live",
+    appUrl: "https://refritech.b1tecnologias.com.br",
     shot: {
-      src: "/produtos/refritech-gestao.png",
-      alt: "Painel de gestão do B1 Refritech no MacBook, na visão geral da operação.",
+      src: "/produtos/refritech/painel.jpg",
+      alt: "Painel da B1 Refritech no computador, com faturamento, agenda, preventivas e caixa.",
       caption: "Painel da operação",
     },
     frames: [
       {
-        place: "login",
-        src: "/produtos/refritech-login.png",
-        width: 857,
-        height: 497,
-        alt: "Tela de acesso do B1 Refritech no MacBook: responsável no painel e técnico na carteira.",
-        caption: "Acesso",
-      },
-      {
         place: "painel",
-        src: "/produtos/refritech-gestao.png",
-        width: 862,
-        height: 498,
-        alt: "Painel de gestão do B1 Refritech no MacBook, com faturamento, agenda e saúde do parque.",
+        src: "/produtos/refritech/painel.jpg",
+        width: 1920,
+        height: 1200,
+        alt: "Painel da B1 Refritech no computador, com faturamento, agenda, preventivas e caixa.",
         caption: "Painel da operação",
-      },
-      {
-        place: "carteira",
-        src: "/produtos/refritech-carteira.png",
-        width: 295,
-        height: 557,
-        alt: "Carteira do técnico no celular, com a comissão do mês e o dia de quem está na rua.",
-        caption: "Carteira do técnico",
       },
     ],
     pageLead:
-      "O Refritech cobre a operação inteira. Quem administra o parque entra no painel. Quem atende na rua entra na carteira, no mesmo produto.",
+      "Sistema para empresa de refrigeração. O painel mostra a operação, a carteira leva a ordem de serviço para quem está na rua e a etiqueta com QR fica no equipamento.",
+    audience:
+      "Feito para técnicos autônomos e empresas de refrigeração que precisam ver a operação inteira, do escritório à rua.",
+    problems: [
+      {
+        title: "Ordens de serviço",
+        text: "A OS do dia fica na carteira, com horário, endereço, rota e checklist.",
+      },
+      {
+        title: "Agenda, preventivas e PMOC",
+        text: "O painel reúne a agenda, as preventivas, o PMOC e a saúde do parque.",
+      },
+      {
+        title: "Etiqueta no equipamento",
+        text: "O QR fica no aparelho. Quem aponta a câmera vê o equipamento, sem a ficha interna da empresa.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Para quem é o B1 Refritech?",
+        answer:
+          "Para técnicos autônomos e empresas de refrigeração. O responsável entra no painel da operação. O técnico entra na carteira do dia.",
+      },
+      {
+        question: "O que o sistema organiza?",
+        answer:
+          "Clientes, equipamentos, ordens de serviço, orçamentos, agenda, técnicos, PMOC, estoque e financeiro. A carteira leva a OS, a rota e o checklist para quem está atendendo.",
+      },
+      {
+        question: "Como entrar no sistema?",
+        answer:
+          "O B1 Refritech está em refritech.b1tecnologias.com.br. O mesmo login abre o painel para o responsável e a carteira para o técnico. Funciona no celular e no computador, sem instalação.",
+      },
+    ],
+    ctaLabel: "Conhecer o Refritech",
     pillars: [
       {
-        title: "Acesso",
-        text: "O responsável entra no painel da operação. O técnico entra na carteira do dia.",
-      },
-      {
         title: "Painel",
-        text: "Faturamento, agenda, preventivas, caixa e a saúde do parque na mesma leitura.",
+        text: "Faturamento, agenda, preventivas, PMOC, caixa e a saúde do parque na mesma leitura.",
       },
       {
-        title: "Na rua",
-        text: "Comissão, agenda, rotas e as ordens do dia na carteira de quem está atendendo.",
+        title: "Carteira",
+        text: "A OS do dia, a rota, o checklist e a comissão na mão de quem está atendendo.",
+      },
+      {
+        title: "Etiqueta",
+        text: "O QR no equipamento abre a identidade pública: modelo, local, revisão e garantia.",
       },
     ],
   },
@@ -122,43 +146,70 @@ export const products: Product[] = [
     name: "B1 PDV",
     mark: "PDV",
     field: "Tecnologia para o comércio",
-    line: "Vendas, estoque e operação no mesmo lugar.",
+    line: "A loja inteira cabe num turno.",
     summary: "O balcão da venda e o painel da loja no mesmo produto.",
     extra: "A venda acontece na conta. O painel mostra o faturamento, o caixa e a prateleira.",
-    action: "Em desenvolvimento",
-    status: "building",
+    action: "Conhecer o PDV",
+    status: "live",
+    appUrl: "https://pdv.b1tecnologias.com.br",
     frames: [
       {
-        place: "balcao",
-        src: "/produtos/pdv-balcao.png",
-        width: 865,
-        height: 493,
-        alt: "Balcão do B1 PDV no MacBook, com a conta da venda, os pagamentos e o total a receber.",
-        caption: "Balcão",
-      },
-      {
         place: "loja",
-        src: "/produtos/pdv-painel.png",
-        width: 865,
-        height: 496,
-        alt: "Painel do B1 PDV no MacBook, com o faturamento da filial, o caixa e a prateleira.",
-        caption: "Painel da loja",
+        src: "/produtos/pdv/pdv.png",
+        width: 1440,
+        height: 900,
+        alt: "Balcão do B1 PDV, com a busca, o carrinho e o pagamento na mesma tela.",
+        caption: "O balcão",
       },
     ],
     pageLead:
-      "O PDV junta o balcão e a gestão da loja. A venda acontece na conta. O painel mostra o faturamento, o caixa e o que falta na prateleira.",
+      "Sistema de PDV com controle de estoque para mercado, padaria e loja de bairro. Venda, caixa e prateleira ficam na mesma filial.",
+    audience:
+      "Feito para quem vende no balcão e para quem administra a loja. Cada pessoa entra só no que o perfil libera.",
+    problems: [
+      {
+        title: "Abre a gaveta",
+        text: "O turno começa com o dinheiro que já está no caixa. O nome do caixa fica no visor.",
+      },
+      {
+        title: "Vende no balcão",
+        text: "Busca, código de barras, cliente, desconto e pagamento dividido. O troco aparece na hora.",
+      },
+      {
+        title: "Fecha contando",
+        text: "A diferença entre o esperado e o contado aparece antes de encerrar. Sangria e retirada ficam no movimento.",
+      },
+    ],
+    faqs: [
+      {
+        question: "O B1 PDV já pode ser usado na loja?",
+        answer:
+          "A demonstração está no ar em pdv.b1tecnologias.com.br. Autorização da SEFAZ, PIX cobrado e TEF entram com a loja real.",
+      },
+      {
+        question: "Para que tipo de loja ele foi feito?",
+        answer:
+          "Para mercado, padaria e loja de bairro que precisam registrar a venda e acompanhar caixa, estoque e faturamento da mesma filial.",
+      },
+      {
+        question: "Como entrar no sistema?",
+        answer:
+          "O B1 PDV está em pdv.b1tecnologias.com.br. A proprietária vê a loja inteira, a gerência opera o estoque e o caixa, e quem está no caixa vende no balcão.",
+      },
+    ],
+    ctaLabel: "Conhecer o PDV",
     pillars: [
       {
         title: "Balcão",
-        text: "A conta da venda, com busca por nome ou código, e pagamento em dinheiro, PIX, débito ou crédito.",
+        text: "A busca, o carrinho e o pagamento na mesma tela em que a venda sai.",
       },
       {
-        title: "Painel",
-        text: "Faturamento da filial, vendas, ticket médio e o caixa, na leitura de quem administra a loja.",
+        title: "Caixa",
+        text: "O dinheiro esperado e a diferença aparecem antes de fechar o turno.",
       },
       {
         title: "Prateleira",
-        text: "O que está em falta aparece no painel, com o caminho para abrir o estoque.",
+        text: "O dia mostra o faturamento, o ticket e o que precisa voltar para a prateleira.",
       },
     ],
   },
@@ -178,6 +229,7 @@ export type Delivery = {
   name: string;
   place: string;
   text: string;
+  scope: string[];
   shots: DeliveryShot[];
 };
 
@@ -187,6 +239,10 @@ export const deliveries: Delivery[] = [
     name: "Narino Terraplenagem",
     place: "Ananindeua e Belém",
     text: "Site da empresa e sistema de gestão: máquinas, clientes, contratos e faturas.",
+    scope: [
+      "Site com pedido de orçamento, no computador e no celular.",
+      "Painel de gestão com máquinas, clientes, contratos e faturas.",
+    ],
     shots: [
       {
         kind: "phone",
@@ -219,6 +275,10 @@ export const deliveries: Delivery[] = [
     name: "KBarros Serviços",
     place: "Ananindeua, Belém e região",
     text: "Site de locação e terraplenagem, e o painel de motoristas, veículos e documentos.",
+    scope: [
+      "Site de locação e terraplenagem, com pedido de orçamento.",
+      "Painel operacional de motoristas, veículos e documentos.",
+    ],
     shots: [
       {
         kind: "phone",
@@ -251,6 +311,11 @@ export const deliveries: Delivery[] = [
     name: "FrioTech Refrigeração",
     place: "Ananindeua",
     text: "Site da loja técnica, painel do negócio e terminal de balcão.",
+    scope: [
+      "Site da loja de peças e equipamentos de refrigeração.",
+      "Painel com faturamento, vendas e acesso ao balcão.",
+      "Terminal de balcão para a venda no caixa.",
+    ],
     shots: [
       {
         kind: "phone",
@@ -320,4 +385,8 @@ export const stack = [
 
 export function productBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
+}
+
+export function deliveryBySlug(slug: string) {
+  return deliveries.find((delivery) => delivery.slug === slug);
 }

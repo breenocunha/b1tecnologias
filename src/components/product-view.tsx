@@ -19,16 +19,31 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
   return (
     <article className={`tone-${product.slug} px-5 pt-32 pb-24 md:px-8`}>
       <JsonLd
-        data={graph(breadcrumbGraph(crumbs), {
-          "@type": "SoftwareApplication",
-          name: product.name,
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "Web",
-          description: product.pageLead,
-          url: `${site.url}${path}`,
-          inLanguage: "pt-BR",
-          provider: { "@id": organizationId() },
-        })}
+        data={graph(
+          breadcrumbGraph(crumbs),
+          {
+            "@type": "SoftwareApplication",
+            name: product.name,
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            description: product.pageLead,
+            url: `${site.url}${path}`,
+            inLanguage: "pt-BR",
+            provider: { "@id": organizationId() },
+          },
+          ...(product.faqs
+            ? [
+                {
+                  "@type": "FAQPage",
+                  mainEntity: product.faqs.map((faq) => ({
+                    "@type": "Question",
+                    name: faq.question,
+                    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+                  })),
+                },
+              ]
+            : []),
+        )}
       />
       <div className="mx-auto max-w-6xl">
         <Breadcrumb items={crumbs} />
@@ -40,6 +55,9 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
             </h1>
             <p className="mt-4 text-[color:var(--tone)]">{product.field}</p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">{product.pageLead}</p>
+            {product.audience ? (
+              <p className="mt-4 max-w-xl leading-relaxed text-paper">{product.audience}</p>
+            ) : null}
             {product.status === "building" ? (
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-paper/75">
                 Esta página mostra a direção do produto. Ele ainda não está disponível para uso.
@@ -71,6 +89,34 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
         ))}
       </div>
 
+      {product.problems ? (
+        <section className="mx-auto mt-16 max-w-6xl">
+          <h2 className="font-display text-3xl tracking-tight">O que resolve</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {product.problems.map((problem) => (
+              <div key={problem.title} className="rounded-3xl border border-white/10 p-6">
+                <h3 className="font-display text-xl tracking-tight">{problem.title}</h3>
+                <p className="mt-3 leading-relaxed text-mist">{problem.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {product.faqs ? (
+        <section className="mx-auto mt-16 max-w-6xl">
+          <h2 className="font-display text-3xl tracking-tight">Perguntas frequentes</h2>
+          <div className="mt-6 grid gap-6">
+            {product.faqs.map((faq) => (
+              <div key={faq.question} className="max-w-2xl">
+                <h3 className="font-display text-xl tracking-tight">{faq.question}</h3>
+                <p className="mt-2 leading-relaxed text-mist">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <div className="mx-auto mt-16 flex max-w-6xl flex-col gap-8 border-t border-white/10 pt-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-sm text-mist">Parte do ecossistema B1</p>
@@ -93,7 +139,7 @@ export function ProductView({ product, siblings }: { product: Product; siblings:
           </ul>
         </div>
         <a href={mail} className="btn">
-          Falar sobre {product.mark}
+          {product.ctaLabel ?? `Falar sobre ${product.mark}`}
         </a>
       </div>
     </article>

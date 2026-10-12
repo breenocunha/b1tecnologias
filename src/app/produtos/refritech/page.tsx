@@ -1,4 +1,4 @@
-import { ProductView } from "@/components/product-view";
+import { ProductWindow } from "@/components/product-window";
 import { productBySlug, products } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 
@@ -6,11 +6,11 @@ const product = productBySlug("refritech")!;
 
 export const metadata = pageMeta({
   path: "/produtos/refritech",
-  title: "Refritech, gestão para refrigeração",
+  title: "Sistema para empresa de refrigeração",
   description:
-    "Sistema de gestão para refrigeração. Quem administra usa o painel; quem atende usa a carteira do técnico. B1 Refritech, da B1 Tecnologias em Belém.",
+    "O B1 Refritech é o sistema da B1 para empresas de refrigeração. A apresentação do produto está em refritech.b1tecnologias.com.br.",
 });
 
 export default function RefritechPage() {
-  return <ProductView product={product} siblings={products} />;
+  return <ProductWindow product={product} siblings={products} />;
 }

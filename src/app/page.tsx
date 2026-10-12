@@ -11,7 +11,7 @@ export const metadata = pageMeta({
   path: "/",
   title: "B1 Tecnologias — Software e produtos digitais em Belém",
   description:
-    "A B1 Tecnologias, em Belém, cria produtos digitais próprios: Refritech para refrigeração, PDV para o comércio e Move. Sistemas em operação no Pará.",
+    "Empresa de software em Belém. A B1 cria o Refritech para refrigeração, o PDV para o comércio e o Move, e desenvolve sistemas para negócios no Pará.",
 });
 
 export default function Home() {

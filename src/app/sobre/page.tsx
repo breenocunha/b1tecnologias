@@ -11,9 +11,9 @@ const crumbs = [
 
 export const metadata = pageMeta({
   path: "/sobre",
-  title: "Sobre a B1",
+  title: "Empresa de tecnologia em Belém",
   description:
-    "A B1 Tecnologias, em Belém, idealiza, desenvolve e opera produtos digitais próprios: Refritech, PDV e Move.",
+    "A B1 Tecnologias é uma empresa de software em Belém, no Pará. Cria produtos próprios e desenvolve sistemas para negócios da região.",
 });
 
 export default function SobrePage() {
@@ -41,7 +41,7 @@ export default function SobrePage() {
           <li>Cada um nasce de um mercado e de pessoas com uma rotina concreta.</li>
           <li>A base é compartilhada. O ecossistema pode crescer sem recomeçar do zero.</li>
         </ul>
-        <h2>O que já está em construção</h2>
+        <h2>Os produtos da B1</h2>
         <ul>
           {products.map((product) => (
             <li key={product.slug}>
@@ -54,6 +54,16 @@ export default function SobrePage() {
             </li>
           ))}
         </ul>
+        <h2>Sistemas desenvolvidos para negócios</h2>
+        <p>
+          Além dos produtos da marca, a B1 desenvolve sites e sistemas para empresas em Belém e
+          região. Esses projetos não fazem parte do catálogo Refritech, PDV e Move.
+        </p>
+        <p>
+          <Link href="/projetos" className="text-paper hover:text-blue">
+            Ver os projetos entregues
+          </Link>
+        </p>
         <p>Do código à experiência.</p>
       </div>
       <Link href="/#contato" className="btn mt-12">

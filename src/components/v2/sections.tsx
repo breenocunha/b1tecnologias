@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const pillars = [
   {
     n: "01",
@@ -28,8 +26,8 @@ const chain = ["Refrigeração", "Gestão", "Vendas", "Estoque", "Clientes", "Da
 const labs = ["AI", "3D", "Automação", "Cloud", "Mobile", "Web"];
 
 const nodes = [
-  { name: "B1 Refritech", hint: "Refrigeração", href: "/produtos/refritech", tone: "refritech" },
-  { name: "B1 PDV", hint: "Varejo", href: "/produtos/pdv", tone: "pdv" },
+  { name: "B1 Refritech", hint: "Refrigeração", href: "https://refritech.b1tecnologias.com.br", tone: "refritech" },
+  { name: "B1 PDV", hint: "Varejo", href: "https://pdv.b1tecnologias.com.br", tone: "pdv" },
   { name: "B1 Move", hint: "Movimento", href: "/produtos/move", tone: "move" },
 ];
 
@@ -74,13 +72,13 @@ export function Growing() {
           </svg>
           <div className="mt-6 grid gap-4 md:mt-0 md:grid-cols-3">
             {nodes.map((node) => (
-              <Link key={node.name} href={node.href} className={`tone-${node.tone} glass block p-6`}>
+              <a key={node.name} href={node.href} className={`tone-${node.tone} glass block p-6`}>
                 <p className="font-display text-xl tracking-tight">
                   <span className="tone-dot" />
                   {node.name}
                 </p>
                 <p className="mt-2 text-sm text-mist">{node.hint}</p>
-              </Link>
+              </a>
             ))}
           </div>
           <div className="mx-auto mt-2 hidden h-12 w-px bg-white/20 md:block" />

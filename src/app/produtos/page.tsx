@@ -18,12 +18,12 @@ const faqs = [
   {
     question: "O que é o B1 Refritech?",
     answer:
-      "É o sistema de gestão da B1 para empresas de refrigeração. Quem administra o parque entra no painel, com faturamento, agenda, preventivas e caixa. Quem atende na rua entra na carteira do técnico.",
+      "É o sistema de gestão da B1 para empresas de refrigeração, no ar em refritech.b1tecnologias.com.br. Quem administra entra no painel. Quem atende entra na carteira. O QR fica no equipamento.",
   },
   {
     question: "O B1 PDV já está disponível?",
     answer:
-      "Ainda está em desenvolvimento. A direção já está definida: o balcão registra a venda, em dinheiro, PIX, débito ou crédito, e o painel mostra faturamento, caixa e o que falta na prateleira.",
+      "Sim. O sistema de vendas com controle de estoque está em pdv.b1tecnologias.com.br. A demonstração abre o balcão, o caixa e o relatório do dia. Autorização da SEFAZ, PIX cobrado e TEF entram com a loja real.",
   },
   {
     question: "Para que serve o B1 Move?",
@@ -61,7 +61,7 @@ export default function ProdutosPage() {
               "@type": "ListItem",
               position: index + 1,
               name: product.name,
-              url: `${site.url}/produtos/${product.slug}`,
+              url: product.appUrl ?? `${site.url}/produtos/${product.slug}`,
               description: product.pageLead,
             })),
           },
@@ -81,18 +81,16 @@ export default function ProdutosPage() {
         Software para refrigeração, comércio e rotina.
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
-        A B1 Tecnologias, em Belém, cria produtos próprios. O Refritech é o sistema de gestão para
-        empresas de refrigeração. O PDV junta a venda no balcão com o caixa e o estoque. O Move ajuda
-        quem quer sair da inatividade e construir ritmo.
+        A B1 é a vitrine. O Refritech e o PDV têm a apresentação no endereço de cada produto. O Move
+        ainda está em desenvolvimento, aqui na B1.
       </p>
 
       <div className="mt-14 grid gap-5">
         {listed.map((product, index) => {
           const cover = coverOf(product);
           return (
-            <Link
+            <article
               key={product.slug}
-              href={`/produtos/${product.slug}`}
               className={`tone-${product.slug} group grid items-center gap-8 rounded-3xl border border-white/10 bg-panel p-6 transition hover:border-[color:var(--tone)] md:p-8 ${
                 cover ? "lg:grid-cols-[1.05fr_0.95fr]" : ""
               }`}
@@ -101,7 +99,15 @@ export default function ProdutosPage() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h2 className="font-display text-3xl tracking-tight">
                     <span className="tone-dot" />
-                    {product.name}
+                    {product.appUrl ? (
+                      <a href={product.appUrl} className="hover:text-[color:var(--tone)]">
+                        {product.name}
+                      </a>
+                    ) : (
+                      <Link href={`/produtos/${product.slug}`} className="hover:text-[color:var(--tone)]">
+                        {product.name}
+                      </Link>
+                    )}
                   </h2>
                   <span className="text-xs tracking-[0.18em] text-mist uppercase">
                     {product.status === "building" ? "Em desenvolvimento" : "Produto B1"}
@@ -110,31 +116,44 @@ export default function ProdutosPage() {
                 <p className="mt-3 text-sm text-[color:var(--tone)]">{product.field}</p>
                 <p className="mt-4 max-w-xl text-lg leading-relaxed text-paper">{product.line}</p>
                 <p className="mt-3 max-w-xl leading-relaxed text-mist">{product.pageLead}</p>
-                <ul className="mt-5 grid gap-2 text-sm text-mist">
-                  {product.pillars.map((pillar) => (
-                    <li key={pillar.title}>
-                      <span className="text-paper">{pillar.title}. </span>
-                      {pillar.text}
-                    </li>
-                  ))}
-                </ul>
-                <p className="link-arrow mt-6">
-                  {product.action}
-                  <span className="arrow">→</span>
-                </p>
+                <div className="mt-6">
+                  {product.appUrl ? (
+                    <a href={product.appUrl} className="link-arrow">
+                      {product.ctaLabel ?? product.action}
+                      <span className="arrow">→</span>
+                    </a>
+                  ) : (
+                    <Link href={`/produtos/${product.slug}`} className="link-arrow">
+                      {product.action}
+                      <span className="arrow">→</span>
+                    </Link>
+                  )}
+                </div>
               </div>
               {cover ? (
-                <Image
-                  src={cover.src}
-                  alt={cover.alt}
-                  width={cover.width}
-                  height={cover.height}
-                  priority={index === 0}
-                  unoptimized
-                  className="h-auto w-full rounded-2xl border border-white/10"
-                />
+                product.appUrl ? (
+                  <a href={product.appUrl}>
+                    <Image
+                      src={cover.src}
+                      alt={cover.alt}
+                      width={cover.width}
+                      height={cover.height}
+                      priority={index === 0}
+                      className="h-auto w-full rounded-2xl border border-white/10"
+                    />
+                  </a>
+                ) : (
+                  <Image
+                    src={cover.src}
+                    alt={cover.alt}
+                    width={cover.width}
+                    height={cover.height}
+                    priority={index === 0}
+                    className="h-auto w-full rounded-2xl border border-white/10"
+                  />
+                )
               ) : null}
-            </Link>
+            </article>
           );
         })}
       </div>

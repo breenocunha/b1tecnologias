@@ -17,10 +17,17 @@ export function Footer() {
           <ul className="mt-4 grid gap-2 text-sm">
             {products.map((product) => (
               <li key={product.slug}>
-                <Link href={`/produtos/${product.slug}`} className={`tone-${product.slug} hover:text-blue`}>
-                  <span className="tone-dot" />
-                  {product.name}
-                </Link>
+                {product.appUrl ? (
+                  <a href={product.appUrl} className={`tone-${product.slug} hover:text-blue`}>
+                    <span className="tone-dot" />
+                    {product.name}
+                  </a>
+                ) : (
+                  <Link href={`/produtos/${product.slug}`} className={`tone-${product.slug} hover:text-blue`}>
+                    <span className="tone-dot" />
+                    {product.name}
+                  </Link>
+                )}
               </li>
             ))}
             <li>
@@ -43,6 +50,11 @@ export function Footer() {
             <li>Automação</li>
             <li>Tecnologia</li>
             <li className="pt-3">
+              <Link href="/projetos" className="text-paper hover:text-blue">
+                Projetos entregues
+              </Link>
+            </li>
+            <li>
               <Link href="/#operacao" className="text-paper hover:text-blue">
                 Em operação
               </Link>

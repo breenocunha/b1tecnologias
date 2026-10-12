@@ -1,4 +1,4 @@
-import { ProductView } from "@/components/product-view";
+import { ProductWindow } from "@/components/product-window";
 import { productBySlug, products } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 
@@ -6,11 +6,11 @@ const product = productBySlug("pdv")!;
 
 export const metadata = pageMeta({
   path: "/produtos/pdv",
-  title: "PDV para vendas e estoque",
+  title: "Sistema PDV com controle de estoque",
   description:
-    "Balcão e painel da loja no mesmo produto: venda, pagamentos, caixa, faturamento e prateleira. O B1 PDV está em desenvolvimento.",
+    "O B1 PDV é o sistema de vendas da B1 para pequenas lojas. A apresentação do produto está em pdv.b1tecnologias.com.br.",
 });
 
 export default function PdvPage() {
-  return <ProductView product={product} siblings={products} />;
+  return <ProductWindow product={product} siblings={products} />;
 }

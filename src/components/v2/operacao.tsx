@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { deliveries } from "@/lib/content";
 
 export function Operation() {
@@ -10,7 +11,8 @@ export function Operation() {
           Três negócios. Três sistemas entregues.
         </h2>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-          Cada um é um site e a operação por trás. Já rodam comercialmente.
+          Sites e sistemas desenvolvidos pela B1 para estes negócios. Já estão em uso. Não fazem
+          parte do catálogo de produtos da marca.
         </p>
 
         <div className="mt-24 grid gap-28">
@@ -18,7 +20,9 @@ export function Operation() {
             <article key={item.slug}>
               <p className="text-sm tracking-[0.16em] text-cyan">{item.place}</p>
               <h3 className="mt-3 font-display text-[clamp(2rem,4vw,3.4rem)] tracking-tight">
-                {item.name}
+                <Link href={`/projetos/${item.slug}`} className="hover:text-blue">
+                  {item.name}
+                </Link>
               </h3>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-mist">{item.text}</p>
               <div className="mt-10 grid items-end gap-8 lg:grid-cols-[0.34fr_1fr_1fr] lg:gap-6">
