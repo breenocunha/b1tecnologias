@@ -26,6 +26,12 @@ NODE_VERSION = "22"
     Content-Type = "text/plain; charset=utf-8"
 
 [[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
   for = "/bimi/logo.svg"
   [headers.values]
     Content-Type = "image/svg+xml"

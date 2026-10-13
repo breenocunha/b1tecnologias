@@ -1,0 +1,32 @@
+# B1 Tecnologias
+
+> Empresa de software em Belém, Pará. O site b1tecnologias.com.br é a vitrine da marca. A apresentação de cada produto no ar está no subdomínio desse produto.
+
+A B1 cria produtos digitais próprios e também desenvolve sistemas para negócios. Narino, KBarros e FrioTech são projetos entregues e já estão em uso. Não fazem parte do catálogo Refritech, PDV e Move. Este site não publica preços, planos nem depoimentos.
+
+## Produtos
+
+- [B1 Refritech](https://refritech.b1tecnologias.com.br): Sistema para empresa de refrigeração. O painel mostra a operação e a carteira leva a ordem de serviço para quem atende na rua.
+- [B1 Refritech na vitrine](https://b1tecnologias.com.br/produtos/refritech): Leitura curta no site da marca, com o caminho para o produto.
+- [B1 PDV](https://pdv.b1tecnologias.com.br): Sistema de PDV com controle de estoque para mercado, padaria e loja de bairro.
+- [B1 PDV na vitrine](https://b1tecnologias.com.br/produtos/pdv): Leitura curta no site da marca, com o caminho para o produto.
+- [B1 Move](https://b1tecnologias.com.br/produtos/move): Experiência para quem quer sair da inatividade e construir ritmo. Ainda em desenvolvimento, sem subdomínio.
+
+## Vitrine
+
+- [Início](https://b1tecnologias.com.br/): Marca B1 Tecnologias, em Belém.
+- [Produtos](https://b1tecnologias.com.br/produtos): Catálogo da vitrine.
+- [Sobre](https://b1tecnologias.com.br/sobre): A empresa de tecnologia em Belém e região.
+- [Projetos](https://b1tecnologias.com.br/projetos): Sistemas desenvolvidos pela B1 para negócios. Não são produtos da marca.
+
+## Projetos entregues
+
+- [Narino Terraplenagem](https://b1tecnologias.com.br/projetos/narino): Site e sistema de gestão de máquinas, clientes, contratos e faturas. Ananindeua e Belém.
+- [KBarros Serviços](https://b1tecnologias.com.br/projetos/kbarros): Site de locação e terraplenagem, e painel de motoristas, veículos e documentos.
+- [FrioTech Refrigeração](https://b1tecnologias.com.br/projetos/friotech): Site da loja técnica, painel do negócio e terminal de balcão. Não é o B1 Refritech.
+
+## Optional
+
+- [Privacidade](https://b1tecnologias.com.br/privacidade): Como a B1 trata informações neste site.
+- [Termos](https://b1tecnologias.com.br/termos): Condições de uso do site institucional.
+- [Contato](mailto:contato@b1tecnologias.com.br): contato@b1tecnologias.com.br.
